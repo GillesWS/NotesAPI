@@ -11,6 +11,7 @@ namespace NotesApp
         {
             InitializeComponent();
             _notesApiClientService = notesApiClientService;
+            this.Appearing += MainPage_Appearing;
         }
 
         private async Task LoadNotes()
@@ -19,14 +20,16 @@ namespace NotesApp
             notesListView.ItemsSource = notes;
         }
 
+        // Event handler for MainPage appearing
+        private async void MainPage_Appearing(object sender, EventArgs e)
+        {
+            // Load notes every time the MainPage appears
+            await LoadNotes();
+        }
+
         private async void ButtonAdd_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NotePage(_notesApiClientService, null));
-        }
-
-        private async void ButtonShow_Clicked(object sender, EventArgs e)
-        {
-            await LoadNotes();
         }
 
         private async void noteListView_ItemTapped(object sender, ItemTappedEventArgs e)
