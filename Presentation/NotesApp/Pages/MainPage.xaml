@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesApp.MainPage">
+    <FlexLayout Direction="Column">
+        <HorizontalStackLayout>
+            <Button x:Name="BtnAdd" Text="Add" Clicked="ButtonAdd_Clicked" BackgroundColor="LightBlue" TextColor="Black"/>
+            <Button x:Name="BtnShow" Text="Show" Clicked="ButtonShow_Clicked" BackgroundColor="LightGreen" TextColor="Black"/>
+        </HorizontalStackLayout>
+        <!-- Display notes in a list -->
+    <ListView x:Name="notesListView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="noteListView_ItemTapped">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <VerticalStackLayout Padding="5">
+                        <Label Text="{Binding Text}" FontSize="20" />
+                        <Label Text="{Binding Date, StringFormat='Created: {0:MM/dd/yyyy HH:mm}'}" FontSize="14" TextColor="Gray" />
+                    </VerticalStackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </FlexLayout>
+</ContentPage>
