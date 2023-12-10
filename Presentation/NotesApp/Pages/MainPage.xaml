@@ -1,23 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NotesApp.MainPage">
+             x:Class="NotesApp.MainPage"
+             Title="Notes"
+             BackgroundColor="{DynamicResource AccentColor}">
 
-    <FlexLayout Direction="Column" BackgroundColor="LightGray" JustifyContent="Center" AlignItems="Center">
-
+    <FlexLayout Direction="Column" JustifyContent="Center" AlignItems="Center" BackgroundColor="{DynamicResource AccentColor}">
         <!-- Add padding/margin to the ImageButton -->
         <ImageButton Source="add.png" Clicked="ButtonAdd_Clicked" BackgroundColor="Transparent" WidthRequest="24" HeightRequest="24"
-                     Margin="0,20,0,20" />
+                         Margin="0,20,0,20" />
 
-        <ListView x:Name="notesListView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="noteListView_ItemTapped">
+        <ListView x:Name="notesListView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="noteListView_ItemTapped" BackgroundColor="{DynamicResource AccentColor}">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <VerticalStackLayout Padding="5">
-                            <Label Text="{Binding Text}" FontSize="20" />
-                            <Label Text="{Binding Date, StringFormat='Created: {0:MM/dd/yyyy HH:mm}'}" FontSize="14" TextColor="Gray" />
-                        </VerticalStackLayout>
+                        <Grid>
+                            <!-- Frame around each note with shadow and padding -->
+                            <Frame CornerRadius="5" Margin="5" Padding="5" HasShadow="True" BackgroundColor="White">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Text}" FontSize="20" TextColor="Black" />
+                                    <Label Text="{Binding Date, StringFormat='Created: {0:MM/dd/yyyy HH:mm}'}" FontSize="14" TextColor="Gray" />
+                                </VerticalStackLayout>
+                            </Frame>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

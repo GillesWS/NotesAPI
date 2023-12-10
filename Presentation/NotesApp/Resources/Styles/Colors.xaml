@@ -17,6 +17,14 @@
     <Color x:Key="Gray600">#404040</Color>
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
+    <Color x:Key="Green">#69E338</Color>
+    <Color x:Key="Red">#FF0000</Color>
+    <Color x:Key="PrimaryColor">#FFFBF5</Color>
+    <!-- Light background -->
+    <Color x:Key="AccentColor">#F7EFE5</Color>
+    <!-- Neutral accent color -->
+    <Color x:Key="TextColor">#000000</Color>
+    <!-- Dark text color -->
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>

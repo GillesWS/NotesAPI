@@ -35,7 +35,7 @@ namespace NotesApp
         private async void noteListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var note = (Note)e.Item;
-            var action = await DisplayActionSheet("Action", "Cancel", null, "Edit", "Delete");
+            var action = await DisplayActionSheet("Which action would you like to perform?", "Cancel", null, "Edit", "Delete");
             switch (action)
             {
                 case "Edit":
